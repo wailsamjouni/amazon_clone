@@ -1,0 +1,73 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1400px;
+  height: 70vh;
+}
+
+.empty__all {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+  background-color: white;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  height: 300px;
+}
+
+.empty__basket {
+  width: 30%;
+  margin-bottom: 10px;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.empty__info {
+}
+
+.empty__buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.empty__button {
+  border: none;
+  padding: 5px 8px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #ffffff;
+  cursor: pointer;
+  background-color: #f7ca00;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.empty__button--regestrieren {
+  background-color: white;
+}
+
+a {
+  font-size: 12px;
+  font-weight: 400;
+  transition: 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.empty__div {
+  background-color: white;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+p {
+  width: 80%;
+  font-size: 12px;
+}

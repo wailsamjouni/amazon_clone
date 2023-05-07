@@ -10,6 +10,7 @@
   background-color: white;
   z-index: 1;
   width: 100%;
+  cursor: pointer;
 }
 
 .product__info {
@@ -23,6 +24,7 @@
 
 .product__rating {
   display: flex;
+  margin: 10px 0;
 }
 
 .product > img {
@@ -33,7 +35,10 @@
 }
 
 .product > button {
-  background-color: #f0c14b;
+  background-color: #f7ca00;
   border: 1px solid;
   border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 20px;
+  padding: 5px 25px;
+  cursor: pointer;
 }

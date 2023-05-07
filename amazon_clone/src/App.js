@@ -6,6 +6,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Checkout from './pages/checkout/Checkout';
 
 function App() {
 
@@ -24,7 +25,11 @@ function App() {
     },
     {
       path: "/checkout",
-      element: <div>Checkout</div>,
+      element:
+        <>
+          <Header />
+          <Checkout />
+        </>,
     },
   ]);
 
