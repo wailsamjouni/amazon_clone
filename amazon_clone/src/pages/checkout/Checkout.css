@@ -45,11 +45,25 @@ span {
 }
 
 .checkout__products {
-  width: 100%;
-  max-width: 1500px;
+  width: 70%;
+  /* max-width: 1500px; */
+}
+
+.checkout__right {
+  width: 30%;
 }
 
 .checkout__title {
   margin-bottom: 20px;
   font-size: 30px;
+  border-bottom: 1px solid lightgray;
+  padding: 10px 0;
+  background-color: white;
+}
+
+.checkout__topandsubtotal {
+  display: flex;
+  width: 100%;
+  gap: 50px;
+  max-width: 1500px;
 }

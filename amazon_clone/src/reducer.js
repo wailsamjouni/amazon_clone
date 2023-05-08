@@ -1,17 +1,19 @@
 export const initialState = {
-  basket: [{
-    id: '2344345654',
-    title: 'Der heilige Koran, Al- Quran al- Karim, Quran - HOCHWERTIG - Arabisch/ Deutsch Übersetzung - Koran Verstehen',
-    image: 'https://m.media-amazon.com/images/I/51FnsnU1C8L.jpg',
-    price: 16.50,
-    rating: 5
-  }],
+  basket: [],
   user: null
 };
+
+export const getBasketTotal = basket =>
+  basket.reduce((amount, item) => item.price + amount, 0);
 
 function reducer(state, action) {
   console.log(action)
   switch (action.type) {
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user
+      }
     case "ADD_TO_BASKET":
       return {
         ...state,
@@ -30,7 +32,6 @@ function reducer(state, action) {
       return {
         ...state,
         basket: newBasket,
-        // basket: [...state.basket.remove(action.id)]
       };
     default:
       return state;
@@ -38,3 +39,12 @@ function reducer(state, action) {
 }
 
 export default reducer;
+
+
+// {
+//   id: '2344345654',
+//   title: 'Der heilige Koran, Al- Quran al- Karim, Quran - HOCHWERTIG - Arabisch/ Deutsch Übersetzung - Koran Verstehen',
+//   image: 'https://m.media-amazon.com/images/I/51FnsnU1C8L.jpg',
+//   price: 16.50,
+//   rating: 5
+// }

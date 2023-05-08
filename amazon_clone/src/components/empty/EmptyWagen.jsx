@@ -1,8 +1,11 @@
 import React from 'react'
 import './EmptyWagen.css'
 import EmptyBasket from '../../assets/empty.svg'
+import { Link } from 'react-router-dom'
+
 
 function EmptyWagen() {
+
     return (
         <div className="empty">
             <div className='empty__all'>
@@ -15,8 +18,12 @@ function EmptyWagen() {
                     <h2>Ihr Amazon-Einkaufswagen ist leer</h2>
                     <a>Aktuelle Angebote einkaufen</a>
                     <div className="empty__buttons">
-                        <button className='empty__button'>Melde dich bei deinem Konto an</button>
-                        <button className='empty__button empty__button--regestrieren'>Jetzt regestrieren</button>
+                        <Link to='/login'>
+                            <button className='empty__button'>Melde dich bei deinem Konto an</button>
+                        </Link>
+                        <Link to='/login'>
+                            <button className='empty__button empty__button--regestrieren'>Jetzt regestrieren</button>
+                        </Link>
                     </div>
                 </div>
 

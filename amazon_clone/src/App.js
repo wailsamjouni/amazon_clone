@@ -1,14 +1,41 @@
 import './App.css';
 import Home from './pages/home/Home'
 import Header from './components/header/Header';
+import { useStateValue } from './StateProvider';
+import { auth } from './firebase';
+import Checkout from './pages/checkout/Checkout';
+import Login from './pages/login/Login';
+import { useEffect } from 'react';
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Checkout from './pages/checkout/Checkout';
 
 function App() {
+
+  const [{ user }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      console.log('hhhhhhhhhhhhhhhhhhhhhhhhhh', user)
+      if (authUser) {
+        dispatch({
+          type: 'SET_USER',
+          user: authUser
+        })
+      } else {
+        dispatch({
+          type: 'SET_USER',
+          user: null
+        })
+
+      }
+    });
+    return () => unsubscribe();
+  }, [])
+
+  console.log(user)
 
   const router = createBrowserRouter([
     {
@@ -21,7 +48,7 @@ function App() {
     },
     {
       path: "/login",
-      element: <div>Login</div>,
+      element: <Login />,
     },
     {
       path: "/checkout",
@@ -30,16 +57,16 @@ function App() {
           <Header />
           <Checkout />
         </>,
-    },
+    }
   ]);
 
 
   return (
-    // <div className="App">
-    //   <h1>build amazon clone</h1>
-    // </div>
+
     <RouterProvider router={router} />
   );
 }
+
+
 
 export default App;

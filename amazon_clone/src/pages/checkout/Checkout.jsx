@@ -5,6 +5,7 @@ import EmptyBasket from '../../assets/empty.svg'
 import AddPocket from '../../assets/puls.jpg'
 import EmptyWagen from '../../components/empty/EmptyWagen'
 import CheckoutProduct from '../../components/checkoutproduct/CheckoutProduct'
+import Subtotal from '../../components/subtotal/Subtotal'
 
 function Checkout() {
 
@@ -31,27 +32,38 @@ function Checkout() {
             </div>
 
 
-            {
-                basket?.length === 0 ? (<EmptyWagen />)
-                    : (
-                        <div className='checkout__products'>
-                            <h2 className='checkout__title'>Einkaufswagen</h2>
-                            {
-                                basket?.map(item => {
-                                    const { id, title, image, price, rating } = item;
-                                    return <CheckoutProduct
-                                        key={id}
-                                        id={id}
-                                        title={title}
-                                        image={image}
-                                        price={price}
-                                        rating={rating}
-                                    />
-                                })
-                            }
+            <div className='checkout__topandsubtotal'>
+                {
+                    basket?.length === 0 ? (<EmptyWagen />)
+                        : (
+                            <div className='checkout__products'>
+                                <h2 className='checkout__title'>Einkaufswagen</h2>
+                                {
+                                    basket?.map(item => {
+                                        const { id, title, image, price, rating } = item;
+                                        return <CheckoutProduct
+                                            key={id}
+                                            id={id}
+                                            title={title}
+                                            image={image}
+                                            price={price}
+                                            rating={rating}
+                                        />
+                                    })
+                                }
+                            </div>
+                        )
+
+                }
+                {
+                    basket?.length > 0 && (
+                        <div className='checkout__right'>
+                            <Subtotal />
                         </div>
                     )
-            }
+                }
+            </div>
+
         </div>
     )
 }
